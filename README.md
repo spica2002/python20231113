@@ -1,1 +1,1 @@
-"# youngho.shin" 
+"# Python 핵심" 
