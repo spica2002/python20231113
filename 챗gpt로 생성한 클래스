@@ -1,0 +1,93 @@
+class Person:
+    """
+    사람을 나타내는 클래스입니다.
+    
+    속성:
+    - id: 사람의 식별번호입니다.
+    -title: 사람의 직함이나 이름입니다.
+    """
+    def __init__(self, person_id, title):
+        """
+        사람 클래스의 초기화 함수입니다.
+        
+        Args:
+        - person_id: 사람의 고유한 식별 번호입니다.
+        - title: 사람의 이름이나 직함입니다.
+        """
+        self.id = person_id
+        self.title = title
+
+    def printInfo(self):
+        print(f"ID: {self.id}, Title: {self.title}")
+
+class Manager(Person):
+    def __init__(self, person_id, title, skill):
+        super().__init__(person_id, title)
+        self.skill = skill
+
+    def printInfo(self):
+        super().printInfo()
+        print(f"Skill: {self.skill}")
+
+class Employee(Person):
+    def __init__(self, person_id, title, role):
+        super().__init__(person_id, title)
+        self.role = role
+
+    def printInfo(self):
+        super().printInfo()
+        print(f"Role: {self.role}")
+
+# 클래스 테스트
+person1 = Person(1, "John Doe")
+person1.printInfo()
+
+manager1 = Manager(2, "Jane Smith", "Leadership")
+manager1.printInfo()
+
+employee1 = Employee(3, "Alice Johnson", "Developer")
+employee1.printInfo()
+
+person2 = Person(4, "Mark Johnson")
+person2.printInfo()
+
+manager2 = Manager(5, "Emma Brown", "Communication")
+manager2.printInfo()
+
+employee2 = Employee(6, "Chris Williams", "Designer")
+employee2.printInfo()
+
+def test_classes():
+    person = Person(7, "Lucy White")
+    person.printInfo()
+
+    manager = Manager(8, "Michael Green", "Problem-solving")
+    manager.printInfo()
+
+    employee = Employee(9, "Sophia Davis", "Analyst")
+    employee.printInfo()
+
+# 클래스 테스트
+test_classes()
+
+
+people = [
+    Person(10, "Sam Brown"),
+    Manager(11, "Olivia Clark", "Project Management"),
+    Employee(12, "Ethan Wilson", "Marketing")
+]
+
+for person in people:
+    person.printInfo()
+
+classes = [Person, Manager, Employee]
+instances = []
+
+for i, cls in enumerate(classes, start=13):
+    if i == 13:
+        continue
+    instance = cls(i, f"Person {i}", f"Extra {i}")
+    instances.append(instance)
+
+for instance in instances:
+    instance.printInfo()
